@@ -1,0 +1,16 @@
+.button {
+  width: 100px;
+  height: 60px;
+}
+#button_0 {
+  background-color: red;
+}
+#button_1 {
+  background-color: blue;
+}
+#button_2 {
+  background-color: green;
+}
+#button_3 {
+  background-color: yellow;
+}
