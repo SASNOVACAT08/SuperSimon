@@ -1,2 +1,2 @@
-let player_list = [];
-let simon_list = [];
+let playerList = [];
+let simonList = [];
