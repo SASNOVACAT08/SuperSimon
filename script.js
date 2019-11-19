@@ -12,8 +12,7 @@ const $buttons = document.querySelectorAll(".button");
           gameOver();
           break;
         case 1:
-          playerList = [];
-          playerTurn = false;
+          resetPlayer();
           newSimonTurn();
           break;
         case 2:
@@ -44,6 +43,16 @@ const verifList = () => {
 
 const gameOver = () => {
   console.log("Game Over");
+};
+
+const resetGame = () => {
+  simonList = [];
+  resetPlayer();
+};
+
+const resetPlayer = () => {
+  playerList = [];
+  playerTurn = false;
 };
 
 const startGame = () => {
