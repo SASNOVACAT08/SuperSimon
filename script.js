@@ -1,8 +1,9 @@
 let playerList = [];
 let simonList = [];
 let playerTurn = false;
-let speed = 1000;
-let restartPossible = true;
+let speed = 100;
+let gameNotStarted = true;
+let restartPossible = true; //A remplacer par quelque chose qui arrete le await wait();
 
 const $buttons = document.querySelectorAll(".button");
 const $start = document.getElementById("start");
@@ -75,17 +76,21 @@ const resetPlayer = () => {
 };
 
 const restartGame = () => {
-  if (restartPossible) {
+  if (restartPossible && !gameNotStarted) {
     simonList = [];
     speed = 1000;
+    gameNotStarted = true;
     resetPlayer();
     startGame();
   }
 };
 
 const startGame = () => {
-  newSimonTurn();
-  displaySimonTurn();
+  if (gameNotStarted) {
+    gameNotStarted = false;
+    newSimonTurn();
+    displaySimonTurn();
+  }
 };
 
 $restart.onclick = () => restartGame();
