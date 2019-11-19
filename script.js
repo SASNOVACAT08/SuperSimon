@@ -1,8 +1,12 @@
 let playerList = [];
 let simonList = [];
 let playerTurn = false;
+let speed = 1000;
+let restartPossible = true;
+
 const $buttons = document.querySelectorAll(".button");
-const SPEED = 1000;
+const $start = document.getElementById("start");
+const $restart = document.getElementById("restart");
 
 [...$buttons].map(ele => {
   ele.onclick = () => {
@@ -35,15 +39,17 @@ const newSimonTurn = () => {
 };
 
 const displaySimonTurn = async () => {
+  restartPossible = false;
   for (const [simonIndex, simonValue] of simonList.entries()) {
     let tempoColor = $buttons[simonValue].style.backgroundColor;
     $buttons[simonValue].style.backgroundColor = "black";
-    await wait(SPEED);
+    await wait(speed);
     $buttons[simonValue].style.backgroundColor = tempoColor;
     if (simonIndex !== simonList.length - 1) {
-      await wait(SPEED);
+      await wait(speed);
     }
   }
+  restartPossible = true;
   playerTurn = true;
 };
 
@@ -63,14 +69,18 @@ const gameOver = () => {
   console.log("Game Over");
 };
 
-const resetGame = () => {
-  simonList = [];
-  resetPlayer();
-};
-
 const resetPlayer = () => {
   playerList = [];
   playerTurn = false;
+};
+
+const restartGame = () => {
+  if (restartPossible) {
+    simonList = [];
+    speed = 1000;
+    resetPlayer();
+    startGame();
+  }
 };
 
 const startGame = () => {
@@ -78,4 +88,5 @@ const startGame = () => {
   displaySimonTurn();
 };
 
-startGame();
+$restart.onclick = () => restartGame();
+$start.onclick = () => startGame();
