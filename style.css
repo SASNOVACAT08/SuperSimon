@@ -1,16 +1,36 @@
+.flex {
+  display: flex;
+}
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.box {
+  width: 15vw;
+  height: 15vw;
+  z-index: 10;
+  border-radius: 100%;
+  background-color: white;
+}
 .button {
-  width: 100px;
-  height: 60px;
+  width: 10vw;
+  height: 10vw;
 }
 #button_0 {
   background-color: red;
+  border-radius: 10vw 0 0 0;
 }
 #button_1 {
   background-color: blue;
+  border-radius: 0 10vw 0 0;
 }
 #button_2 {
   background-color: green;
+  border-radius: 0 0 0 10vw;
 }
 #button_3 {
   background-color: yellow;
+  border-radius: 0 0 10vw 0;
 }
