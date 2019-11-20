@@ -14,6 +14,36 @@
   border-radius: 100%;
   background-color: white;
 }
+.text {
+  z-index: 11;
+  font-family: Arial;
+  font-size: 4vw;
+  text-align: center;
+}
+.game {
+  position: absolute;
+  top: 10%;
+  width: 5vw;
+  height: 5vw;
+  font-size: 1vw;
+  padding: 0;
+  margin: 0;
+  background-color: #bfbfbf;
+  border: 0;
+  border-radius: 100%;
+  transition: 0.2s ease;
+}
+.game:hover {
+  background-color: #dedede;
+}
+#start {
+  left: 40%;
+  transform: translate(-40%, -10%);
+}
+#restart {
+  right: 40%;
+  transform: translate(40%, -10%);
+}
 .button {
   width: 10vw;
   height: 10vw;

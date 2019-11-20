@@ -1,13 +1,15 @@
 let playerList = [];
 let simonList = [];
 let playerTurn = false;
-let speed = 100;
+let speed = 1000;
 let gameNotStarted = true;
 let restartPossible = true; //A remplacer par quelque chose qui arrete le await wait();
 
 const $buttons = document.querySelectorAll(".button");
 const $start = document.getElementById("start");
 const $restart = document.getElementById("restart");
+const $round = document.getElementById("round");
+const $clicked = document.getElementById("clicked");
 
 [...$buttons].map(ele => {
   ele.onclick = () => {
@@ -37,6 +39,7 @@ const wait = async ms => {
 const newSimonTurn = () => {
   let randomNumber = Math.floor(Math.random() * Math.floor(4));
   simonList.push(randomNumber);
+  $round.innerHTML = simonList.length;
 };
 
 const displaySimonTurn = async () => {
@@ -56,6 +59,7 @@ const displaySimonTurn = async () => {
 
 const newPlayerTurn = ele => {
   playerList.push(Number(ele.id[ele.id.length - 1]));
+  $clicked.innerHTML = playerList.length;
 };
 
 const verifList = () => {
@@ -73,6 +77,7 @@ const gameOver = () => {
 const resetPlayer = () => {
   playerList = [];
   playerTurn = false;
+  $clicked.innerHTML = 0;
 };
 
 const restartGame = () => {
@@ -80,6 +85,7 @@ const restartGame = () => {
     simonList = [];
     speed = 1000;
     gameNotStarted = true;
+    $round.innerHTML = 0;
     resetPlayer();
     startGame();
   }
