@@ -19,10 +19,15 @@ const $restartOver = document.getElementById("restart_over");
 const $turn = document.getElementById("turn_div");
 const $turnDisplay = document.getElementsByClassName("turn");
 
+const sDo = new Audio("./sounds/T0.wav");
+const sRe = new Audio("./sounds/T1.wav");
+const sMi = new Audio("./sounds/T2.wav");
+const sFa = new Audio("./sounds/T3.wav");
+
 [...$buttons].map(ele => {
   ele.onclick = () => {
     if (playerTurn === true) {
-      clickAnimation(ele);
+      clickAnimation(ele, 300, Number(ele.id[ele.id.length - 1]));
       newPlayerTurn(ele);
       switch (verifList()) {
         case 0:
@@ -61,11 +66,9 @@ const newSimonTurn = () => {
 const displaySimonTurn = async () => {
   switchAnimationPlay();
   restartPossible = false;
-  await wait(300);
+  await wait(500);
   for (const [simonIndex, simonValue] of simonList.entries()) {
-    $buttons[simonValue].style.opacity = 0.5;
-    await wait(speed);
-    $buttons[simonValue].style.opacity = 1;
+    clickAnimation($buttons[simonValue], speed, simonValue);
     if (simonIndex !== simonList.length - 1) {
       await wait(speed);
     }
@@ -75,9 +78,23 @@ const displaySimonTurn = async () => {
   switchAnimationPlay();
 };
 
-const clickAnimation = async ele => {
+const clickAnimation = async (ele, speed, value) => {
+  switch (value) {
+    case 0:
+      sDo.play();
+      break;
+    case 1:
+      sRe.play();
+      break;
+    case 2:
+      sMi.play();
+      break;
+    case 3:
+      sFa.play();
+      break;
+  }
   ele.style.opacity = 0.5;
-  await wait(100);
+  await wait(speed);
   ele.style.opacity = 1;
 };
 
@@ -108,7 +125,11 @@ const verifList = () => {
 
 const gameOver = () => {
   $gameOver.style.display = "initial";
-  $gameOverRound.innerHTML = "Round : " + simonList.length;
+  $gameOverRound.innerHTML =
+    "Round : " +
+    simonList.length +
+    " Nombre de touches ce tour : " +
+    (playerList.length - 1);
 };
 
 const resetPlayer = () => {
