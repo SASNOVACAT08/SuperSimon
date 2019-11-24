@@ -16,6 +16,8 @@ const $croix = document.getElementById("croix");
 const $gameOver = document.getElementById("game_over");
 const $gameOverRound = document.getElementById("game_over_round");
 const $restartOver = document.getElementById("restart_over");
+const $turn = document.getElementById("turn_div");
+const $turnDisplay = document.getElementsByClassName("turn");
 
 [...$buttons].map(ele => {
   ele.onclick = () => {
@@ -57,6 +59,7 @@ const newSimonTurn = () => {
 };
 
 const displaySimonTurn = async () => {
+  switchAnimationPlay();
   restartPossible = false;
   await wait(300);
   for (const [simonIndex, simonValue] of simonList.entries()) {
@@ -69,12 +72,26 @@ const displaySimonTurn = async () => {
   }
   restartPossible = true;
   playerTurn = true;
+  switchAnimationPlay();
 };
 
 const clickAnimation = async ele => {
   ele.style.backgroundColor = "black";
   await wait(100);
   ele.style.backgroundColor = "";
+};
+
+const switchAnimationPlay = () => {
+  switch ($turnDisplay[1].style.backgroundColor) {
+    case "green":
+      $turnDisplay[1].style.backgroundColor = "";
+      $turnDisplay[0].style.backgroundColor = "green";
+      break;
+    case "":
+      $turnDisplay[1].style.backgroundColor = "green";
+      $turnDisplay[0].style.backgroundColor = "";
+      break;
+  }
 };
 
 const newPlayerTurn = ele => {

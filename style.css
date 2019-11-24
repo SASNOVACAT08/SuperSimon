@@ -51,6 +51,20 @@
   background-color: #bfbfbf;
   display: none;
 }
+#turn_div {
+  font-size: 1vw;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  display: flex;
+}
+.turn {
+  height: 2vw;
+  width: 2vw;
+  border-radius: 100%;
+  border: 0.1vw solid black;
+}
 #croix {
   width: 1.2vw;
   height: 1.2vw;
