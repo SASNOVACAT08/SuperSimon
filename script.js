@@ -82,15 +82,35 @@ const clickAnimation = async (ele, speed, value) => {
   switch (value) {
     case 0:
       sDo.play();
+      anime({
+        targets: "#do",
+        opacity: [0, 1, 0],
+        duration: 1000
+      });
       break;
     case 1:
       sRe.play();
+      anime({
+        targets: "#re",
+        opacity: [0, 1, 0],
+        duration: 1000
+      });
       break;
     case 2:
       sMi.play();
+      anime({
+        targets: "#mi",
+        opacity: [0, 1, 0],
+        duration: 1000
+      });
       break;
     case 3:
       sFa.play();
+      anime({
+        targets: "#fa",
+        opacity: [0, 1, 0],
+        duration: 1000
+      });
       break;
   }
   ele.style.opacity = 0.5;

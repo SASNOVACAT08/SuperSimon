@@ -50,6 +50,7 @@
   width: 100vw;
   background-color: #bfbfbf;
   display: none;
+  font-size: 1vw;
 }
 #turn_div {
   font-size: 1vw;
@@ -133,4 +134,24 @@
 #button_3 {
   background-color: yellow;
   border-radius: 0 0 10vw 0;
+}
+#do {
+  font-size: 1.5vw;
+  opacity: 0;
+}
+#re {
+  font-size: 1.5vw;
+  margin-left: 100%;
+  opacity: 0;
+}
+#mi {
+  margin-top: 100%;
+  font-size: 1.5vw;
+  opacity: 0;
+}
+#fa {
+  font-size: 1.5vw;
+  margin-left: 100%;
+  margin-top: 100%;
+  opacity: 0;
 }
