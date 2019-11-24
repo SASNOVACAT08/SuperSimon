@@ -36,6 +36,30 @@
 .game:hover {
   background-color: #dedede;
 }
+#modal_info {
+  z-index: 12;
+  background-color: #bfbfbf;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  font-size: 2vw;
+  display: none;
+}
+#croix {
+  width: 1.2vw;
+  height: 1.2vw;
+  font-size: 1vw;
+  padding: 0;
+  margin: 0;
+  background-color: #bfbfbf;
+  border: 0;
+  margin-left: 50vw;
+}
+#croix:hover {
+  background-color: #dedede;
+}
+#regles {
+  text-align: justify;
+}
 #start {
   left: 40%;
   transform: translate(-40%, -10%);
@@ -43,6 +67,10 @@
 #restart {
   right: 40%;
   transform: translate(40%, -10%);
+}
+#info {
+  right: 10%;
+  transform: (10%, -10%);
 }
 .button {
   width: 10vw;
