@@ -63,9 +63,9 @@ const displaySimonTurn = async () => {
   restartPossible = false;
   await wait(300);
   for (const [simonIndex, simonValue] of simonList.entries()) {
-    $buttons[simonValue].style.backgroundColor = "black";
+    $buttons[simonValue].style.opacity = 0.5;
     await wait(speed);
-    $buttons[simonValue].style.backgroundColor = "";
+    $buttons[simonValue].style.opacity = 1;
     if (simonIndex !== simonList.length - 1) {
       await wait(speed);
     }
@@ -76,9 +76,9 @@ const displaySimonTurn = async () => {
 };
 
 const clickAnimation = async ele => {
-  ele.style.backgroundColor = "black";
+  ele.style.opacity = 0.5;
   await wait(100);
-  ele.style.backgroundColor = "";
+  ele.style.opacity = 1;
 };
 
 const switchAnimationPlay = () => {
