@@ -55,17 +55,23 @@ const newSimonTurn = () => {
 
 const displaySimonTurn = async () => {
   restartPossible = false;
+  await wait(300);
   for (const [simonIndex, simonValue] of simonList.entries()) {
-    let tempoColor = "";
     $buttons[simonValue].style.backgroundColor = "black";
     await wait(speed);
-    $buttons[simonValue].style.backgroundColor = tempoColor;
+    $buttons[simonValue].style.backgroundColor = "";
     if (simonIndex !== simonList.length - 1) {
       await wait(speed);
     }
   }
   restartPossible = true;
   playerTurn = true;
+};
+
+const clickAnimation = async ele => {
+  ele.style.backgroundColor = "black";
+  await wait(100);
+  ele.style.backgroundColor = "";
 };
 
 const newPlayerTurn = ele => {
