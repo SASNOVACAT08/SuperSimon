@@ -11,8 +11,11 @@ const $restart = document.getElementById("restart");
 const $round = document.getElementById("round");
 const $clicked = document.getElementById("clicked");
 const $info = document.getElementById("info");
-const $modal_info = document.getElementById("modal_info");
+const $modalInfo = document.getElementById("modal_info");
 const $croix = document.getElementById("croix");
+const $gameOver = document.getElementById("game_over");
+const $gameOverRound = document.getElementById("game_over_round");
+const $restartOver = document.getElementById("restart_over");
 
 [...$buttons].map(ele => {
   ele.onclick = () => {
@@ -87,7 +90,8 @@ const verifList = () => {
 };
 
 const gameOver = () => {
-  console.log("Game Over");
+  $gameOver.style.display = "initial";
+  $gameOverRound.innerHTML = "Round : " + simonList.length;
 };
 
 const resetPlayer = () => {
@@ -98,6 +102,7 @@ const resetPlayer = () => {
 
 const restartGame = () => {
   if (restartPossible && !gameNotStarted) {
+    $gameOver.style.display = "";
     simonList = [];
     speed = 1000;
     gameNotStarted = true;
@@ -116,13 +121,14 @@ const startGame = () => {
 };
 
 $restart.onclick = () => restartGame();
+$restartOver.onclick = () => restartGame();
 $start.onclick = () => startGame();
 
 $info.onclick = () => {
-  if ($modal_info.style.display === "initial") {
-    $modal_info.style.display = "none";
+  if ($modalInfo.style.display === "initial") {
+    $modalInfo.style.display = "none";
   } else {
-    $modal_info.style.display = "initial";
+    $modalInfo.style.display = "initial";
   }
 };
-$croix.onclick = () => ($modal_info.style.display = "none");
+$croix.onclick = () => ($modalInfo.style.display = "none");

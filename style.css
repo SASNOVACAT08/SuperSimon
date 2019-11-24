@@ -44,6 +44,13 @@
   font-size: 2vw;
   display: none;
 }
+#game_over {
+  z-index: 13;
+  height: 100vh;
+  width: 100vw;
+  background-color: #bfbfbf;
+  display: none;
+}
 #croix {
   width: 1.2vw;
   height: 1.2vw;
@@ -67,6 +74,27 @@
 #restart {
   right: 40%;
   transform: translate(40%, -10%);
+}
+#restart_over {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  width: 5vw;
+  height: 5vw;
+  font-size: 1vw;
+  padding: 0;
+  margin: 0;
+  background-color: #dedede;
+  border: 0;
+  border-radius: 100%;
+  transform: translate(-50%, -60%);
+  margin-top: 5vw;
+}
+#game_over_round {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -55%);
 }
 #info {
   right: 10%;
